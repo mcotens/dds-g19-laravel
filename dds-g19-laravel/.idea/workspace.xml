@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="222d0ee7-4061-4329-843e-6f2b14296747" name="Changes" comment="" />
+    <list default="true" id="222d0ee7-4061-4329-843e-6f2b14296747" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../app/Models/Comunidad.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/Models/Etiqueta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/Models/Incidente.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/Models/IncidentePorComunidad.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/Models/Membresia.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/Models/Persona.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/Models/Servicio.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/Models/ServicioPrestado.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/Models/Usuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Models/User.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,15 +26,15 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2XN5tu8yTdtYkzBRbjRO80pJqNL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,19 +45,26 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "36047268",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/php/php.ini",
-    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php"
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="222d0ee7-4061-4329-843e-6f2b14296747" name="Changes" comment="" />
       <created>1698456924989</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698456924989</updated>
       <workItem from="1698456924990" duration="4000" />
+      <workItem from="1698459136256" duration="591000" />
     </task>
     <servers />
   </component>
