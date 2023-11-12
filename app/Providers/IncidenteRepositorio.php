@@ -41,15 +41,6 @@ class IncidenteRepositorio
         return EntityManager::getRepository(Incidente::class)->findAll();
     }
 
-    public function buscarPorLocalidad(string $idLocalidad)
-    {
-        $query = EntityManager::createQuery(
-            "SELECT i FROM App\Entity\Incidente i JOIN i.serviciosAfectados s WHERE s.establecimiento.entidad.ubicacion.metadato.localidad.id = :idBuscado"
-        )->setParameter("idBuscado", (int)$idLocalidad);
-
-        return $query->getResult();
-    }
-
     public function incidentesDeEstado(string $estado, int $idPersona)
     {
         $incidentePorComunidadRepositorio = new IncidentePorComunidadRepositorio();

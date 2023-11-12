@@ -43,6 +43,6 @@ class UsuarioRepositorio
 
     public function buscarPorUsername($username)
     {
-        return EntityManager::createQuery("SELECT u FROM App\Models\Usuario u WHERE u.activo = 1 AND u.username LIKE :usuarioBuscado")->setParameter('usuarioBuscado', '%' . $username . '%')->getResult();
+        return EntityManager::createQuery("SELECT u FROM App\Models\Usuario u WHERE u.activo = true AND u.username LIKE :usuarioBuscado")->setParameter('usuarioBuscado', '%' . $username . '%')->getResult();
     }
 }
