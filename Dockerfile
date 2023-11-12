@@ -23,7 +23,10 @@ COPY . .
 RUN composer install
 
 # Generate Laravel application key
-RUN php artisan key:generate
+RUN php artisan config:cache
+RUN php artisan event:cache
+RUN php artisan route:cache
+RUN php artisan view:cache
 
 # Expose port 8000
 EXPOSE 8080
