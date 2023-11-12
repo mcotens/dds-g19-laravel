@@ -22,6 +22,9 @@ COPY . .
 # Install application dependencies
 RUN composer install
 
+# Generate Laravel application key
+RUN php artisan key:generate
+
 # Expose port 8000
 EXPOSE 8080
 
