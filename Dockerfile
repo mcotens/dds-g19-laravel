@@ -10,6 +10,7 @@ RUN apt-get update -y \
 # Install PHP extensions
 RUN docker-php-ext-install pdo_pgsql pgsql
 
+RUN apt-get update
 RUN apt-get install -y p7zip-full
 
 # Install Composer globally
