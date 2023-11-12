@@ -1,0 +1,12 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  app:
+    image: main-project
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      APP_MAIN_PORT: 8080
