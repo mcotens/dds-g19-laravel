@@ -21,9 +21,9 @@ class Incidente extends \Lombok\Helper {
 
     /**
      * @ORM\ManyToMany(targetEntity="ServicioPrestado")
-     * @ORM\JoinTable (name="incidentes_serviciosprestados",
-     *     joinColumns={@ORM\JoinColumn(name="Incidente_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="serviciosAfectados_id", referencedColumnName="id")})
+     * @ORM\JoinTable (name="incidentes_servicios_prestados",
+     *     joinColumns={@ORM\JoinColumn(name="incidente_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="serviciosafectados_id", referencedColumnName="id")})
      */
     private $serviciosAfectados;
 
