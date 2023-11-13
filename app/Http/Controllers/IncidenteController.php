@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Usuario;
+use App\Providers\ComunidadRepositorio;
 use App\Providers\IncidentePorComunidadRepositorio;
 use App\Providers\IncidenteRepositorio;
 use App\Providers\UsuarioRepositorio;
@@ -19,11 +20,13 @@ class IncidenteController extends Controller
     protected UsuarioRepositorio $repoUsuario;
     protected IncidenteRepositorio $repoIncidente;
     protected IncidentePorComunidadRepositorio $repoIncidenteComunidad;
+    protected ComunidadRepositorio $repoComunidad;
 
     public function __construct() {
         $this->repoIncidenteComunidad = new IncidentePorComunidadRepositorio();
         $this->repoIncidente = new IncidenteRepositorio();
         $this->repoUsuario = new UsuarioRepositorio();
+        $this->repoComunidad = new ComunidadRepositorio();
     }
 
     public function index(Request $request)
@@ -41,6 +44,7 @@ class IncidenteController extends Controller
 
         $paramEstado = $request->input("estado");
         $usuario = $this->repoUsuario->buscarPorId(intval($request->input('idUsuario')));
+        $comunidad = $this->repoComunidad->buscarPorId(intval($request->input('idComunidad')));
 
         if($usuario != null){
             $model['userActual'] = $usuario;
@@ -51,15 +55,12 @@ class IncidenteController extends Controller
                 if($paramEstado == "paraRevision"){
                     return "paraRevision";
                 }else{
-                    $listaIncidentes = $this->repoIncidente->incidentesDeEstado($paramEstado, $usuario->getPersonaAsociada()->getId());
+                    $incidentesPorComunidad = $this->repoIncidente->incidentesDeEstado($paramEstado, $comunidad->getIncidentes());
                 }
             } else {
-                $listaIncidentes = $this->repoIncidente->buscarTodos();
+                $incidentesPorComunidad = $comunidad->getIncidentes();
             }
-
-            $incidentesPorComunidad = $this->repoIncidenteComunidad->incidentesComunidadDe($usuario, $listaIncidentes);
         }else{
-
             $incidentesPorComunidad = array();
         }
 

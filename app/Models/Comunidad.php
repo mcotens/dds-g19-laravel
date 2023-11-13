@@ -40,6 +40,10 @@ class Comunidad {
      */
     private $incidentes;
 
+    public function getIncidentes(){
+        return $this->incidentes;
+    }
+
     public function __construct() {
         $this->serviciosPrestados = new ArrayCollection();
         $this->membresias = new ArrayCollection();

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models\Comunidad;
 use App\Models\IncidentePorComunidad;
 use App\Models\Usuario;
 use LaravelDoctrine\ORM\Facades\EntityManager;
