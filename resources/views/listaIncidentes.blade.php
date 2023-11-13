@@ -60,9 +60,9 @@
                                         <td rowspan="{{ count($incidentePorComunidad->getIncidente()->getServiciosAfectados()) }}" class="text-center">
                                             <form action="https://dds-tpa-g19-main-app.onrender.com/cierreIncidente" method="post">
                                                 <input type="hidden" name="incidente" value="{{ $incidentePorComunidad->getIncidente()->getId() }}">
-                                                @unless($incidentePorComunidad->getIncidente()->isEstaCerrado())
+                                                @if(!$incidentePorComunidad->isEstaCerrado())
                                                     <button type="submit" class="btn btn-sm btn-warning">Cerrar</button>
-                                                @endunless
+                                                @endif
                                             </form>
                                         </td>
                                     @endif
