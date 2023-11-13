@@ -4,7 +4,7 @@
         <div class="row justify-content-center mt-4">
             <div class="col-md-10">
                 <h2 class="mb-3">Listado de Incidentes</h2>
-                <form method="GET" action="/incidentes">
+                <form method="POST" action="https://dds-g19-laravel.onrender.com/incidentes">
                     @csrf
                     <div class="row">
                         <label for="estado" class="form-label">Buscar incidente por estado</label>
@@ -26,7 +26,7 @@
                         @if(isset($userActual))
                             @unless(count($userActual->getPersonaAsociada()->getMembresias()) === 0)
                                 <div class="col-sm-2">
-                                    <a href="/aperturaIncidente" class="btn btn-success">Abrir incidente</a>
+                                    <a href="https://dds-tpa-g19-main-app.onrender.com/aperturaIncidente" class="btn btn-success">Abrir incidente</a>
                                 </div>
                             @endunless
                         @endif
@@ -59,7 +59,7 @@
                                             @endif
                                         </td>
                                         <td rowspan="{{ count($incidentePorComunidad->getIncidente()->getServiciosAfectados()) }}" class="text-center">
-                                            <form action="/cierreIncidente" method="post">
+                                            <form action="https://dds-tpa-g19-main-app.onrender.com/cierreIncidente" method="post">
                                                 <input type="hidden" name="incidente" value="{{ $incidentePorComunidad->getIncidente()->getId() }}">
                                                 @unless($incidentePorComunidad->getIncidente()->isEstaCerrado())
                                                     <button type="submit" class="btn btn-sm btn-warning">Cerrar</button>
