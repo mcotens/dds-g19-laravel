@@ -41,26 +41,29 @@ class IncidenteRepositorio
         return EntityManager::getRepository(Incidente::class)->findAll();
     }
 
+    private static function vincentyGreatCircleDistance(
+        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000)
+    {
+        // convert from degrees to radians
+        $latFrom = deg2rad($latitudeFrom);
+        $lonFrom = deg2rad($longitudeFrom);
+        $latTo = deg2rad($latitudeTo);
+        $lonTo = deg2rad($longitudeTo);
+
+        $lonDelta = $lonTo - $lonFrom;
+        $a = pow(cos($latTo) * sin($lonDelta), 2) +
+            pow(cos($latFrom) * sin($latTo) - sin($latFrom) * cos($latTo) * cos($lonDelta), 2);
+        $b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
+
+        $angle = atan2(sqrt($a), $b);
+        return $angle * $earthRadius;
+    }
+
     public function incidentesDeEstado(string $estado, int $idPersona)
     {
         $incidentePorComunidadRepositorio = new IncidentePorComunidadRepositorio();
-        $personaRepositorio = EntityManager::getRepository(Persona::class);
 
         $incidentesTotales = $this->buscarTodos();
-
-        if ($estado === "paraRevision") {
-            $persona = $personaRepositorio->find($idPersona);
-            $evaluadorSolicitudRevision = new EvaluadorSolicitudRevision(new CalculadoraDistanciaEnMetros());
-            $incidentesPorComunidadTotales = $evaluadorSolicitudRevision->obtenerIncidentesCercanos($persona);
-
-            $incidentesRepetidos = array_map(function ($ipc) {
-                return $ipc->getIncidente();
-            }, $incidentesPorComunidadTotales);
-
-            $incidentesFinal = array_unique($incidentesRepetidos);
-
-            return $incidentesFinal;
-        }
 
         $incidentesResultado = [];
 

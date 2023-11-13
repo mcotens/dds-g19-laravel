@@ -26,7 +26,7 @@ class IncidenteController extends Controller
         $this->repoUsuario = new UsuarioRepositorio();
     }
 
-    public function index(Request $request): View
+    public function index(Request $request)
     {
         $model = [];
 
@@ -48,7 +48,11 @@ class IncidenteController extends Controller
 
         if($usuario != null) {
             if ($paramEstado !== null) {
-                $listaIncidentes = $this->repoIncidente->incidentesDeEstado($paramEstado, $usuario->getPersonaAsociada()->getId());
+                if($paramEstado == "paraRevision"){
+                    return "paraRevision";
+                }else{
+                    $listaIncidentes = $this->repoIncidente->incidentesDeEstado($paramEstado, $usuario->getPersonaAsociada()->getId());
+                }
             } else {
                 $listaIncidentes = $this->repoIncidente->buscarTodos();
             }
@@ -62,6 +66,5 @@ class IncidenteController extends Controller
         $model['incidentesPorComunidad'] = $incidentesPorComunidad;
 
         return view('listaIncidentes', $model);
-
     }
 }
