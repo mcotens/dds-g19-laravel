@@ -4,7 +4,7 @@
         <div class="row justify-content-center mt-4">
             <div class="col-md-10">
                 <h2 class="mb-3">Listado de Incidentes</h2>
-                <form method="POST" action="https://dds-g19-laravel.onrender.com/incidentes">
+                <form method="GET" action="https://dds-g19-laravel.onrender.com/incidentes">
                     @csrf
                     <div class="row">
                         <label for="estado" class="form-label">Buscar incidente por estado</label>
