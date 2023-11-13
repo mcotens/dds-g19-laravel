@@ -43,15 +43,19 @@ class IncidenteRepositorio
 
     public function incidentesDeEstado(string $estado, $incidentesPorComunidad)
     {
+        // Convert the PersistentCollection to an array
+        $incidentesArray = $incidentesPorComunidad->toArray();
+
         switch ($estado) {
             case "cerrado":
-                return array_filter($incidentesPorComunidad, function ($ipc) {
+                return array_filter($incidentesArray, function ($ipc) {
                     return $ipc->isEstaCerrado();
                 });
             default:
-                return array_filter($incidentesPorComunidad, function ($ipc) {
+                return array_filter($incidentesArray, function ($ipc) {
                     return !$ipc->isEstaCerrado();
                 });
         }
     }
+
 }
